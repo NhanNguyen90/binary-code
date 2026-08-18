@@ -49,6 +49,7 @@ def require(condition, message):
     if not condition:
         raise RuntimeError(message)
 
+
 def construct():
     nr = nordstrom_robinson()
     neighborhoods = []
