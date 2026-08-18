@@ -12,10 +12,8 @@ EXPECTED_ENUMERATOR = {
     10:7754, 11:2244, 12:303, 15:76, 16:52,
 }
 
-
 def distance(x, y):
     return (x ^ y).bit_count()
-
 
 def require(condition, message):
     if not condition:
