@@ -34,10 +34,8 @@ EXPECTED_ENUMERATOR = {
 }
 EXPECTED_HASH = "c3a3c9947da9ee43278cf0eeddb798db0d4cdb2bce6280a944270e7f998d5fef"
 
-
 def distance(x, y):
     return (x ^ y).bit_count()
-
 
 def nordstrom_robinson():
     code = []
@@ -47,11 +45,9 @@ def nordstrom_robinson():
         code.append(sum(PACKED_GRAY[zj] << (2 * j) for j, zj in enumerate(z)))
     return code
 
-
 def require(condition, message):
     if not condition:
         raise RuntimeError(message)
-
 
 def construct():
     nr = nordstrom_robinson()
@@ -102,7 +98,6 @@ def construct():
     require(dict(sorted(enumerator.items())) == EXPECTED_ENUMERATOR, "distance enumerator mismatch")
     require(sum(enumerator.values()) == 34191, "invalid pair count")
     return nr, neighborhoods, code, enumerator
-
 
 def write_outputs(neighborhoods, code):
     hex_words = [f"{word:04X}" for word in code]
@@ -183,7 +178,6 @@ def write_outputs(neighborhoods, code):
     ])
     TABLE_III_PATH.write_text(table_iii, encoding="ascii", newline="\n")
     return digest
-
 
 def main():
     _, neighborhoods, code, enumerator = construct()
