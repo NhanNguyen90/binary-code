@@ -28,10 +28,8 @@ RANDOM_MOVE = 0.02
 PERTURB_INTERVAL = 3000
 PERTURB_COUNT = 5
 
-
 def distance(x, y):
     return (x ^ y).bit_count()
-
 
 def nordstrom_robinson():
     code = []
@@ -40,7 +38,6 @@ def nordstrom_robinson():
         z = tuple(sum(a[r] * G[r][j] for r in range(4)) % 4 for j in range(8))
         code.append(sum(PACKED_GRAY[zj] << (2 * j) for j, zj in enumerate(z)))
     return code
-
 
 def deep_holes(nr):
     result = []
@@ -53,7 +50,6 @@ def deep_holes(nr):
             result.append((x, neighborhood))
     return result
 
-
 def domains_for(nr, holes, parent_union):
     domains = {}
     for k in sorted(parent_union):
@@ -62,7 +58,6 @@ def domains_for(nr, holes, parent_union):
             return None
         domains[k] = values
     return domains
-
 
 def solve(nr, domains, warm, seed):
     variables = sorted(domains)
